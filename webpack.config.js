@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '' // co the doi http 'https://google.com/'
   },
-  mode: 'none',
+  mode: 'production',
   module: {
     rules: [
       {
