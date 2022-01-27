@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: 'dist/' // co the doi http 'https://google.com/'
+    publicPath: '' // co the doi http 'https://google.com/'
   },
   mode: 'none',
   module: {
@@ -45,6 +45,12 @@ module.exports = {
             plugins: ['transform-class-properties']
           }
         }
+      },
+      {
+        test: /\.hbs$/,
+        use: [
+          'handlebars-loader'
+        ]
       }
     ]
   },
@@ -56,10 +62,12 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Hello World',
-      filename: 'subfolder/custom_filename.html',
-      meta: {
-        viewport: 'width=device-width, initial-scale=1'
-      }
+      // filename: 'subfolder/custom_filename.html',
+      // meta: {
+      //   viewport: 'width=device-width, initial-scale=1'
+      // }
+      template: 'src/index.hbs',
+      description: 'Some description'
     })
   ]
 }
